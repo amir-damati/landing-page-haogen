@@ -559,7 +559,17 @@
             הפרטים שלך נשמרים בסודיות מוחלטת. בלחיצה על שליחה אתה מאשר את 
             <button type="button" onclick="openModal('privacyModal')" class="underline hover:text-apple-textPrimary">מדיניות הפרטיות</button>.
           </p>
-
+<div>
+  <label for="userEmail" class="block text-xs font-semibold text-apple-textPrimary mb-1.5">כתובת אימייל</label>
+  <input 
+    type="email" 
+    id="userEmail" 
+    required 
+    placeholder="name@example.com" 
+    class="w-full px-4 py-3.5 rounded-xl bg-apple-canvas border border-apple-border text-apple-textPrimary text-sm focus:outline-none focus:border-apple-cobalt focus:ring-1 focus:ring-apple-cobalt transition-all" 
+    dir="ltr" 
+  />
+</div>
         </form>
 
         <!-- Form Success State Box (Hidden by default) -->
@@ -710,81 +720,43 @@
 
   <!-- ================= JAVASCRIPT ================= -->
   <script>
-    // 1. Apple-style Scroll Reveal with IntersectionObserver
-    document.addEventListener("DOMContentLoaded", () => {
-      const revealElements = document.querySelectorAll('.reveal-on-scroll');
-      
-      const revealObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-revealed');
-            observer.unobserve(entry.target); // Reveal once smoothly
-          }
-        });
-      }, {
-        threshold: 0.12,
-        rootMargin: "0px 0px -40px 0px"
-      });
+function handleFormSubmit(event) {
+  event.preventDefault();
 
-      revealElements.forEach(el => revealObserver.observe(el));
-    });
+  const name = document.getElementById('userName').value.trim();
+  const phone = document.getElementById('userPhone').value.trim();
+  const email = document.getElementById('userEmail') ? document.getElementById('userEmail').value.trim() : '';
+  const reason = document.getElementById('userReason').value;
 
-    // 2. Accessibility Menu Controls (Upward popover)
-    function toggleAccessibilityMenu() {
-      const menu = document.getElementById('accessibilityMenu');
-      menu.classList.toggle('hidden');
-    }
+  // הכתובת שנוצרה ב-Apps Script שלך
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbzvVpYxCMiIZThFBA6mRa7OjLHaDUBtaYjeqMKjL_4duVZO7V9NZDmYoe9urqrlagCH/exec';
 
-    let currentScale = 1;
-    function changeFontSize(delta) {
-      currentScale = Math.min(Math.max(currentScale + delta, 0.8), 1.35);
-      document.documentElement.style.setProperty('--font-scale', currentScale);
-    }
+  // שליחת הנתונים ל-Google Sheets ברקע
+  fetch(scriptURL, {
+    method: 'POST',
+    mode: 'no-cors',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      name: name,
+      email: email,
+      phone: phone,
+      topic: reason,
+      notes: 'נרשם מדף הנחיתה'
+    })
+  }).catch(err => console.error('Error submitting form:', err));
 
-    function toggleHighContrast() {
-      document.body.classList.toggle('high-contrast');
-    }
+  // הכנת כפתור המעבר לוואטסאפ (עם מספר הטלפון שלך)
+  const myPhoneNumber = "972552503679"; // שנה למספר הוואטסאפ האמיתי שלך
+  const textMessage = encodeURIComponent(`היי אמיר, שמי ${name}. הגעתי מדף הנחיתה ואשמח לשוחח. הנקודה שהכי פוגשת אותי כרגע: ${reason}.`);
+  const waUrl = `https://wa.me/${myPhoneNumber}?text=${textMessage}`;
 
-    function toggleHighlightLinks() {
-      document.body.classList.toggle('highlight-links');
-    }
-
-    function toggleReadableFont() {
-      document.body.classList.toggle('readable-font');
-    }
-
-    function resetAccessibility() {
-      currentScale = 1;
-      document.documentElement.style.setProperty('--font-scale', 1);
-      document.body.classList.remove('high-contrast', 'highlight-links', 'readable-font');
-    }
-
-    // 3. Modal Handlers
-    function openModal(id) {
-      document.getElementById(id).classList.remove('hidden');
-    }
-    function closeModal(id) {
-      document.getElementById(id).classList.add('hidden');
-    }
-
-    // 4. Contact Form Handler (transitions smoothly to WhatsApp)
-    function handleFormSubmit(event) {
-      event.preventDefault();
-      
-      const name = document.getElementById('userName').value.trim();
-      const phone = document.getElementById('userPhone').value.trim();
-      const reason = document.getElementById('userReason').value;
-
-      // Construct WhatsApp Direct Link with pre-filled message
-      const myPhoneNumber = "972500000000"; // Replace with your actual WhatsApp phone number
-      const textMessage = encodeURIComponent(`היי אמיר, שמי ${name}. הגעתי מדף הנחיתה ואשמח לשוחח. הנקודה שהכי פוגשת אותי כרגע: ${reason}.`);
-      const waUrl = `https://wa.me/${myPhoneNumber}?text=${textMessage}`;
-
-      // Update button link and show success block
-      document.getElementById('waDirectBtn').href = waUrl;
-      document.getElementById('leadForm').classList.add('hidden');
-      document.getElementById('formSuccess').classList.remove('hidden');
-    }
+  // הצגת מסך התודה
+  document.getElementById('waDirectBtn').href = waUrl;
+  document.getElementById('leadForm').classList.add('hidden');
+  document.getElementById('formSuccess').classList.remove('hidden');
+}
   </script>
 
 </body>
