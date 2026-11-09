@@ -719,45 +719,82 @@
   </div>
 
   <!-- ================= JAVASCRIPT ================= -->
-  <script>
-function handleFormSubmit(event) {
-  event.preventDefault();
+ <script>
+  // תפריט נגישות
+  function toggleAccessibilityMenu() {
+    const menu = document.getElementById('accessibilityMenu');
+    if (menu) menu.classList.toggle('hidden');
+  }
 
-  const name = document.getElementById('userName').value.trim();
-  const phone = document.getElementById('userPhone').value.trim();
-  const email = document.getElementById('userEmail') ? document.getElementById('userEmail').value.trim() : '';
-  const reason = document.getElementById('userReason').value;
+  let currentScale = 1;
+  function changeFontSize(delta) {
+    currentScale = Math.min(Math.max(currentScale + delta, 0.8), 1.3);
+    document.documentElement.style.setProperty('--font-scale', currentScale);
+  }
 
-  // הכתובת שנוצרה ב-Apps Script שלך
-  const scriptURL = 'https://script.google.com/macros/s/AKfycbzvVpYxCMiIZThFBA6mRa7OjLHaDUBtaYjeqMKjL_4duVZO7V9NZDmYoe9urqrlagCH/exec';
+  function toggleHighContrast() {
+    document.body.classList.toggle('high-contrast');
+  }
 
-  // שליחת הנתונים ל-Google Sheets ברקע
-  fetch(scriptURL, {
-    method: 'POST',
-    mode: 'no-cors',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
-      name: name,
-      email: email,
-      phone: phone,
-      topic: reason,
-      notes: 'נרשם מדף הנחיתה'
-    })
-  }).catch(err => console.error('Error submitting form:', err));
+  function toggleHighlightLinks() {
+    document.body.classList.toggle('highlight-links');
+  }
 
-  // הכנת כפתור המעבר לוואטסאפ (עם מספר הטלפון שלך)
-  const myPhoneNumber = "972552503679"; // שנה למספר הוואטסאפ האמיתי שלך
-  const textMessage = encodeURIComponent(`היי אמיר, שמי ${name}. הגעתי מדף הנחיתה ואשמח לשוחח. הנקודה שהכי פוגשת אותי כרגע: ${reason}.`);
-  const waUrl = `https://wa.me/${myPhoneNumber}?text=${textMessage}`;
+  function toggleReadableFont() {
+    document.body.classList.toggle('readable-font');
+  }
 
-  // הצגת מסך התודה
-  document.getElementById('waDirectBtn').href = waUrl;
-  document.getElementById('leadForm').classList.add('hidden');
-  document.getElementById('formSuccess').classList.remove('hidden');
-}
-  </script>
+  function resetAccessibility() {
+    currentScale = 1;
+    document.documentElement.style.setProperty('--font-scale', 1);
+    document.body.classList.remove('high-contrast', 'highlight-links', 'readable-font');
+  }
 
+  // חלונות מודאל (פרטיות ונגישות)
+  function openModal(id) {
+    const m = document.getElementById(id);
+    if (m) m.classList.remove('hidden');
+  }
+
+  function closeModal(id) {
+    const m = document.getElementById(id);
+    if (m) m.classList.add('hidden');
+  }
+
+  // שליחת הטופס לשיטס + מעבר לוואטסאפ
+  function handleFormSubmit(event) {
+    event.preventDefault();
+
+    const name = document.getElementById('userName').value.trim();
+    const phone = document.getElementById('userPhone').value.trim();
+    const email = document.getElementById('userEmail') ? document.getElementById('userEmail').value.trim() : '';
+    const reason = document.getElementById('userReason').value;
+
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbzvVpYxCMiIZThFBA6mRa7OjLHaDUBtaYjeqMKjL_4duVZO7V9NZDmYoe9urqrlagCH/exec';
+
+    fetch(scriptURL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        name: name,
+        email: email,
+        phone: phone,
+        topic: reason,
+        notes: 'נרשם מדף הנחיתה'
+      })
+    }).catch(err => console.error('Error submitting form:', err));
+
+    const myPhoneNumber = "972552503679";
+    const textMessage = encodeURIComponent(`היי אמיר, שמי ${name}. הגעתי מדף הנחיתה ואשמח לשוחח. הנקודה שהכי פוגשת אותי כרגע: ${reason}.`);
+    const waUrl = `https://wa.me/${myPhoneNumber}?text=${textMessage}`;
+
+    document.getElementById('waDirectBtn').href = waUrl;
+    document.getElementById('leadForm').classList.add('hidden');
+    document.getElementById('formSuccess').classList.remove('hidden');
+  }
+</script>
 </body>
 </html>
