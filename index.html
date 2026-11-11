@@ -3,55 +3,36 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>אמיר דמתי | AMIR DAMATI — מרחב אישי · עוגן יציב</title>
+  <title>AMIR DAMATI | העוגן — ליווי אישי בגובה העיניים</title>
+  <meta name="description" content="ליווי אישי בגובה העיניים לפירוק דפוסי ריצוי, קיפאון וביקורת עצמית. אמיר דמתי - העוגן." />
 
-  <!-- Google Fonts: Heebo (Apple Hebrew Look) + Frank Ruhl Libre -->
+  <!-- Google Fonts: Heebo -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@700;800;900&family=Heebo:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
-
   <script>
     tailwind.config = {
       theme: {
         extend: {
+          fontFamily: {
+            sans: ['Heebo', 'sans-serif'],
+          },
           colors: {
             apple: {
               canvas: '#F5F5F7',
-              white: '#FFFFFF',
-              surface: '#FFFFFF',
-              border: '#E5E5EA',
-              borderDarker: '#D1D1D6',
+              card: '#FFFFFF',
               textPrimary: '#1D1D1F',
-              textSecondary: '#6E6E73',
+              textSecondary: '#515154',
               textTertiary: '#86868B',
-              cobalt: '#00428A',
-              cobaltHover: '#00336B',
-              cobaltLight: '#E8F1FC',
-              darkPill: '#1D1D1F',
-              darkPillHover: '#000000',
-              waBubble: '#DCF8C6',
-              waBubbleOther: '#FFFFFF'
+              cobalt: '#0066CC',
+              cobaltHover: '#004999',
+              cobaltLight: '#E8F2FF',
+              border: '#D2D2D7',
+              darkPill: '#1D1D1F'
             }
-          },
-          fontFamily: {
-            sans: ['Heebo', '-apple-system', 'BlinkMacSystemFont', '"SF Pro Text"', 'sans-serif'],
-            serif: ['"Frank Ruhl Libre"', 'serif'],
-            brand: ['"Space Grotesk"', 'sans-serif']
-          },
-          borderRadius: {
-            'apple-sm': '12px',
-            'apple-md': '18px',
-            'apple-lg': '24px',
-            'apple-xl': '32px'
-          },
-          boxShadow: {
-            'apple-card': '0 2px 10px rgba(0, 0, 0, 0.03), 0 1px 2px rgba(0, 0, 0, 0.02)',
-            'apple-card-hover': '0 16px 36px rgba(0, 0, 0, 0.06), 0 3px 8px rgba(0, 0, 0, 0.03)',
-            'apple-pill': '0 4px 14px rgba(0, 0, 0, 0.08)',
-            'apple-modal': '0 24px 60px rgba(0, 0, 0, 0.16)'
           }
         }
       }
@@ -63,12 +44,6 @@
       --font-scale: 1;
     }
 
-    * {
-      box-sizing: border-box;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
-
     html {
       font-size: calc(16px * var(--font-scale));
     }
@@ -76,370 +51,226 @@
     body {
       background-color: #F5F5F7;
       color: #1D1D1F;
-      font-family: 'Heebo', -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
-      line-height: 1.6;
-      letter-spacing: -0.011em;
-      overflow-x: hidden;
+      font-family: 'Heebo', -apple-system, BlinkMacSystemFont, sans-serif;
+      -webkit-font-smoothing: antialiased;
     }
 
-    /* Apple Frosted Glass Header */
-    .apple-glass {
-      background: rgba(255, 255, 255, 0.84);
-      backdrop-filter: saturate(180%) blur(20px);
-      -webkit-backdrop-filter: saturate(180%) blur(20px);
-      border-bottom: 0.5px solid rgba(0, 0, 0, 0.08);
-    }
-
-    /* Smooth Apple Reveal Transitions */
-    .reveal-on-scroll {
-      opacity: 0;
-      transform: translateY(24px) scale(0.985);
-      transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
-      will-change: opacity, transform;
-    }
-
-   .reveal-on-scroll {
-  opacity: 1;
-  transform: translateY(0);
-  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-}
-    /* Card styling */
     .apple-card {
       background: #FFFFFF;
-      border: 1px solid #E5E5EA;
       border-radius: 24px;
-      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, border-color 0.35s ease;
+      border: 1px solid rgba(210, 210, 215, 0.6);
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.03);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
     }
 
     .apple-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.06);
-      border-color: #D1D1D6;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
     }
 
-    /* Accessibility state styles */
+    /* מעברי חשיפה בגלילה - עם גיבוי מלא למניעת מסך לבן */
+    .reveal-on-scroll {
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    /* מצבי נגישות */
     body.high-contrast {
-      background-color: #FFFFFF !important;
-      color: #000000 !important;
+      background-color: #000000 !important;
+      color: #FFFFFF !important;
     }
     body.high-contrast .apple-card,
-    body.high-contrast .apple-glass {
-      border: 2px solid #000000 !important;
-      background: #FFFFFF !important;
-      color: #000000 !important;
+    body.high-contrast section,
+    body.high-contrast header,
+    body.high-contrast footer {
+      background-color: #111111 !important;
+      color: #FFFFFF !important;
+      border-color: #FFFF00 !important;
     }
-    body.high-contrast a,
-    body.high-contrast button {
+    body.high-contrast h1,
+    body.high-contrast h2,
+    body.high-contrast h3,
+    body.high-contrast p,
+    body.high-contrast span,
+    body.high-contrast label,
+    body.high-contrast a {
+      color: #FFFFFF !important;
+    }
+    body.highlight-links a,
+    body.highlight-links button {
+      outline: 2px solid #0066CC !important;
       text-decoration: underline !important;
     }
-    body.highlight-links a {
-      background-color: #FEF08A !important;
-      color: #000000 !important;
-      text-decoration: underline !important;
-      padding: 0 4px;
-      border-radius: 4px;
-    }
-    body.readable-font {
-      font-family: Arial, sans-serif !important;
-    }
-
-    /* Custom iOS WhatsApp Mockup bubble */
-    .wa-bubble-sent {
-      background-color: #E7FCE3;
-      border-radius: 18px 18px 4px 18px;
-    }
-    .wa-bubble-received {
-      background-color: #FFFFFF;
-      border: 1px solid #E5E5EA;
-      border-radius: 18px 18px 18px 4px;
+    body.readable-font * {
+      font-family: Arial, Helvetica, sans-serif !important;
+      letter-spacing: 0.02em !important;
     }
   </style>
 </head>
+
 <body class="selection:bg-apple-cobalt selection:text-white">
 
-  <!-- ================= TOP NAVIGATION (FROSTED GLASS) ================= -->
-  <header class="fixed top-0 left-0 right-0 z-40 apple-glass transition-all duration-300">
-    <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
-      
-      <!-- Logo: AMIR DAMATI with precise vector monogram -->
-      <a href="#" class="flex items-center gap-3.5 group">
-        <svg class="w-10 h-10 transition-transform duration-300 group-hover:scale-105" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <!-- A Monogram (Obsidian Black) -->
-          <path d="M50 14L22 84H37L50 51L63 84H78L50 14Z" fill="#1D1D1F" />
-          <path d="M37 60H63V69H37V60Z" fill="#1D1D1F" />
-          <!-- D Monogram (Cobalt Blue #00428A) -->
-          <path d="M48 37H63C73 37 81 44 81 54C81 64 73 71 63 71H48V37ZM58 63H63C68 63 72 59 72 54C72 49 68 45 63 45H58V63Z" fill="#00428A" />
-        </svg>
-        <div class="flex flex-col">
-          <span class="font-brand text-base font-bold tracking-[0.16em] text-apple-textPrimary leading-none uppercase">AMIR DAMATI</span>
-          <span class="text-[12px] font-medium text-apple-textSecondary mt-1 leading-none tracking-wide">מרחב אישי · עוגן יציב</span>
-        </div>
+  <!-- ================= HEADER ================= -->
+  <header class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-apple-border/60">
+    <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+      <a href="#" class="text-base md:text-lg font-extrabold tracking-tight text-apple-textPrimary">
+        AMIR DAMATI <span class="font-light text-apple-textTertiary mx-1">|</span> <span class="text-apple-cobalt">העוגן</span>
       </a>
 
-      <!-- Quick Nav Links -->
-      <nav class="hidden md:flex items-center gap-7 text-sm font-medium text-apple-textSecondary">
-        <a href="#about" class="hover:text-apple-textPrimary transition-colors">העוגן</a>
-        <a href="#pain" class="hover:text-apple-textPrimary transition-colors">למי זה מיועד</a>
-        <a href="#testimonials" class="hover:text-apple-textPrimary transition-colors">הודעות מהקליניקה</a>
-        <a href="#faq" class="hover:text-apple-textPrimary transition-colors">שאלות נפוצות</a>
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-apple-textSecondary">
+        <a href="#approach" class="hover:text-apple-textPrimary transition-colors">על התהליך</a>
+        <a href="#pain" class="hover:text-apple-textPrimary transition-colors">למי זה מתאים</a>
+        <a href="#testimonials" class="hover:text-apple-textPrimary transition-colors">מהקליניקה</a>
+        <a href="#faq" class="hover:text-apple-textPrimary transition-colors">שאלות ותשובות</a>
       </nav>
 
-      <!-- CTA in Header -->
-      <a href="#contact" class="hidden sm:inline-flex items-center justify-center px-5 py-2.5 rounded-full text-xs font-semibold bg-apple-darkPill text-white hover:bg-black transition-all shadow-apple-pill">
-        שיחת היכרות שקטה
+      <a href="#contact" class="px-4 py-2 rounded-full bg-apple-darkPill text-white text-xs md:text-sm font-semibold hover:bg-apple-cobalt transition-colors">
+        לשיחת היכרות
       </a>
     </div>
   </header>
 
-  <!-- ================= HERO SECTION ================= -->
-  <section class="relative pt-36 pb-20 md:pt-44 md:pb-28 overflow-hidden">
-    <div class="max-w-4xl mx-auto px-6 text-center">
-      
-      <!-- Pre-badge -->
-      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-apple-white border border-apple-border text-xs font-medium text-apple-cobalt shadow-sm mb-7 reveal-on-scroll">
-        <span class="w-2 h-2 rounded-full bg-apple-cobalt animate-pulse"></span>
-        <span>מרחב טיפולי מדויק · ללא שיפוטיות · בגובה העיניים</span>
+  <!-- ================= PART 1: HERO ================= -->
+  <section class="pt-16 pb-20 md:pt-28 md:pb-28 px-6">
+    <div class="max-w-4xl mx-auto text-center">
+      <div class="inline-flex items-center px-3.5 py-1.5 rounded-full bg-apple-cobaltLight text-apple-cobalt text-xs font-bold tracking-wide mb-6">
+        ליווי אישי בגובה העיניים
       </div>
 
-      <!-- Main Headline (Apple Typography) -->
-      <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-apple-textPrimary tracking-tight leading-[1.18] mb-7 reveal-on-scroll">
-        נמאס לך לזייף שהכל בסדר,<br />
-        <span class="text-apple-cobalt">לשנוא את עצמך בשקט,</span><br />
-        ולהרגיש לבד גם כשאתה מוקף באנשים?
+      <h1 class="text-3xl sm:text-5xl md:text-6xl font-extrabold text-apple-textPrimary tracking-tight leading-[1.15] mb-6">
+        נמאס לך לזייף שהכל בסדר?<br />
+        <span class="text-apple-textSecondary font-bold">לשנוא את עצמך בשקט ולהרגיש לבד גם ליד אנשים?</span>
       </h1>
 
-      <!-- Subheadline -->
-      <p class="text-lg md:text-xl text-apple-textSecondary max-w-2xl mx-auto leading-relaxed mb-10 reveal-on-scroll">
-        אתה לא צריך עוד "טיפול שיחתי" שמנתח את העבר עד אינסוף, ולא עוד מנטרות ריקות. אתה צריך עוגן יציב ומרחב נטול שיפוט שיעזור לך להפסיק לפחד ממי שאתה – ולהתחיל לחזור אליך.
+      <p class="max-w-2xl mx-auto text-base sm:text-lg md:text-xl text-apple-textSecondary leading-relaxed mb-10">
+        חפירות על העבר לא ישחררו אותך מזה. אנחנו נבנה עוגן יציב שיעזור לך להפסיק לפחד ממי שאתה, ופשוט לחזור לעצמך.
       </p>
 
-      <!-- Hero CTA Button -->
-      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 reveal-on-scroll">
-        <a href="#contact" class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full text-base font-semibold bg-apple-cobalt text-white hover:bg-apple-cobaltHover transition-all shadow-lg hover:shadow-apple-card-hover transform hover:-translate-y-0.5">
-          <span>תאם שיחת היכרות אישית ושקטה</span>
-          <svg class="w-4 h-4 transform rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-          </svg>
+      <div class="flex flex-col items-center justify-center">
+        <a href="#contact" class="w-full sm:w-auto px-8 py-4 rounded-full bg-apple-cobalt hover:bg-apple-cobaltHover text-white font-bold text-base shadow-lg shadow-apple-cobalt/20 transition-all">
+          תאם שיחת היכרות שקטה
         </a>
+        <span class="text-xs text-apple-textTertiary mt-3">
+          שיחה אישית בטלפון, בלי עלות ובלי מחויבות
+        </span>
       </div>
-      <p class="text-xs text-apple-textTertiary mt-3 reveal-on-scroll">ללא עלות · ללא התחייבות · שיחה אישית ודיסקרטית</p>
-
     </div>
   </section>
 
-  <!-- ================= PAIN POINTS SECTION (APPLE BENTO) ================= -->
-  <section id="pain" class="py-16 md:py-24 bg-white border-y border-apple-border">
-    <div class="max-w-6xl mx-auto px-6">
-      
-      <div class="max-w-2xl mx-auto text-center mb-14 reveal-on-scroll">
-        <span class="text-xs font-bold tracking-widest text-apple-cobalt uppercase">נקודות הכאב</span>
+  <!-- ================= PART 2: PAIN POINTS ================= -->
+  <section id="pain" class="py-16 md:py-24 px-6 bg-white border-y border-apple-border/60">
+    <div class="max-w-6xl mx-auto">
+      <div class="max-w-2xl mx-auto text-center mb-14">
+        <span class="text-xs font-bold tracking-widest text-apple-cobalt uppercase">מוכר לך?</span>
         <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-apple-textPrimary tracking-tight mt-2">
-          האם אתה מזהה את עצמך כאן?
+          איפה זה פוגש אותך ביום-יום
         </h2>
-        <p class="text-apple-textSecondary mt-3 text-base">
-          זה לא קורה במקרה, ואתה לא "שבור". אלו דפוסים אוטומטיים שמנהלים אותך מבפנים.
+        <p class="text-apple-textSecondary mt-3 text-base sm:text-lg">
+          אתה לא מקולקל. אלו פשוט הרגלים אוטומטיים שלמדת כדי לשרוד, והיום הם מנהלים אותך.
         </p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        
-        <!-- Card 1: Alone Together -->
-        <div class="apple-card p-8 flex flex-col justify-between reveal-on-scroll">
+        <!-- Card 01 -->
+        <div class="apple-card p-8 flex flex-col justify-between">
           <div>
-            <div class="w-12 h-12 rounded-2xl bg-apple-cobaltLight text-apple-cobalt flex items-center justify-center font-bold text-lg mb-6">
-              01
-            </div>
-            <h3 class="text-xl font-bold text-apple-textPrimary mb-3">מלכודת ה"לבד-ביחד"</h3>
+            <span class="text-xs font-extrabold text-apple-cobalt bg-apple-cobaltLight px-2.5 py-1 rounded-md">01</span>
+            <h3 class="text-xl font-bold text-apple-textPrimary mt-4 mb-3">
+              לבד גם כשיש אנשים סביבך
+            </h3>
             <p class="text-sm md:text-base text-apple-textSecondary leading-relaxed">
-              כשאתה לבד אתה מרגיש חסר אונים וחרד. וכשאתה סוף סוף עם אנשים — אתה נכנס מיד לעמדת ריצוי, עוטה מסכה, ומרגיש עוד <em>יותר</em> בודד כי אף אחד לא באמת פוגש את מי שאתה מתחתיה.
+              כשאתה לבד, החרדה עולה. כשאתה בחברה, אתה מיד מרצה אחרים ושם מסכה. התוצאה היא בדידות כפולה, כי אף אחד לא באמת מכיר את מי שנמצא שם מתחת.
             </p>
           </div>
-          <div class="pt-6 mt-6 border-t border-apple-border text-xs text-apple-textTertiary">
-            דפוס של בדידות כפולה
+          <div class="mt-6 pt-4 border-t border-apple-border/60 text-xs font-semibold text-apple-cobalt">
+            מלכודת הריצוי
           </div>
         </div>
 
-        <!-- Card 2: Freeze & Choices -->
-        <div class="apple-card p-8 flex flex-col justify-between reveal-on-scroll">
+        <!-- Card 02 -->
+        <div class="apple-card p-8 flex flex-col justify-between">
           <div>
-            <div class="w-12 h-12 rounded-2xl bg-apple-cobaltLight text-apple-cobalt flex items-center justify-center font-bold text-lg mb-6">
-              02
-            </div>
-            <h3 class="text-xl font-bold text-apple-textPrimary mb-3">שיתוק ובחירה</h3>
+            <span class="text-xs font-extrabold text-apple-cobalt bg-apple-cobaltLight px-2.5 py-1 rounded-md">02</span>
+            <h3 class="text-xl font-bold text-apple-textPrimary mt-4 mb-3">
+              קיפאון ברגע האמת
+            </h3>
             <p class="text-sm md:text-base text-apple-textSecondary leading-relaxed">
-              למרות שאתה מבין הכל בשכל ובראש — אתה קופא ברגע האמת. קשה לך לקבל החלטות, לבחור מה אתה רוצה באמת, או להוציא לפועל שינויים שברור לך לחלוטין שיעשו לך טוב.
+              בראש הכל ברור לך. אתה יודע בדיוק מה נכון לעשות, אבל ברגע שצריך לבחור או לפעול אתה פשוט ננעל.
             </p>
           </div>
-          <div class="pt-6 mt-6 border-t border-apple-border text-xs text-apple-textTertiary">
-            נתק בין ההבנה השכלית למעשה
+          <div class="mt-6 pt-4 border-t border-apple-border/60 text-xs font-semibold text-apple-cobalt">
+            פער בין ידיעה למעשה
           </div>
         </div>
 
-        <!-- Card 3: The Internal Voice -->
-        <div class="apple-card p-8 flex flex-col justify-between reveal-on-scroll">
+        <!-- Card 03 -->
+        <div class="apple-card p-8 flex flex-col justify-between">
           <div>
-            <div class="w-12 h-12 rounded-2xl bg-apple-cobaltLight text-apple-cobalt flex items-center justify-center font-bold text-lg mb-6">
-              03
-            </div>
-            <h3 class="text-xl font-bold text-apple-textPrimary mb-3">הקול הפנימי שלא שותק</h3>
+            <span class="text-xs font-extrabold text-apple-cobalt bg-apple-cobaltLight px-2.5 py-1 rounded-md">03</span>
+            <h3 class="text-xl font-bold text-apple-textPrimary mt-4 mb-3">
+              השנאה העצמית בסוף היום
+            </h3>
             <p class="text-sm md:text-base text-apple-textSecondary leading-relaxed">
-              הריצוי הבלתי נגמר מסתיים בסוף כל יום בגל שקט של תבוסתנות, עייפות כרונית מנטלית, ותחושה פנימית צורבת: <span class="font-medium text-apple-textPrimary">"נמאס לי ממי שאני, ואני ממש שונא את עצמי בלי להפסיק"</span>.
+              אחרי יום שלם של ניסיון לרצות את כולם, אתה נשאר מרוקן. נשאר רק קול אחד בראש שחוזר על אותו משפט: נמאס לי מעצמי.
             </p>
           </div>
-          <div class="pt-6 mt-6 border-t border-apple-border text-xs text-apple-textTertiary">
-            שנאה עצמית מודחקת
+          <div class="mt-6 pt-4 border-t border-apple-border/60 text-xs font-semibold text-apple-cobalt">
+            ביקורת עצמית שלא מרפה
           </div>
         </div>
-
       </div>
 
-      <!-- Bottom takeaway block -->
-      <div class="mt-10 p-6 md:p-8 rounded-2xl bg-apple-surfaceSubtle border border-apple-border text-center max-w-3xl mx-auto reveal-on-scroll">
-        <p class="text-apple-textSecondary text-base md:text-lg">
-          ניסית ספרים, פודקאסטים, אולי טיפול שבו דיברתם שעות על גבי שעות. <br class="hidden sm:inline" />
-          <strong class="text-apple-textPrimary font-semibold">הראש הבין — אבל בפנים הכל נשאר תקוע בדיוק באותו מקום.</strong>
+      <div class="max-w-2xl mx-auto text-center mt-12">
+        <p class="text-base sm:text-lg font-medium text-apple-textPrimary bg-apple-canvas px-6 py-4 rounded-2xl border border-apple-border/60">
+          אולי כבר ניסית פודקאסטים או ישבת בטיפול ודיברת שעות. הבנת הכל בשכל, אבל בפנים שום דבר לא באמת זז.
         </p>
       </div>
-
     </div>
   </section>
 
-  <!-- ================= ABOUT / THE ANCHOR ================= -->
-  <section id="about" class="py-16 md:py-24 bg-apple-canvas">
-    <div class="max-w-4xl mx-auto px-6">
-      
-      <div class="apple-card p-8 md:p-12 border border-apple-border reveal-on-scroll">
-        
-        <div class="flex items-center gap-3 mb-6">
-          <span class="w-3 h-3 rounded-full bg-apple-cobalt"></span>
-          <span class="text-xs font-bold tracking-widest text-apple-cobalt uppercase">הגישה שלי</span>
-        </div>
-
-        <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-apple-textPrimary tracking-tight mb-6">
-          אפשר אחרת. ולא לבד.
+  <!-- ================= PART 3: MY APPROACH ================= -->
+  <section id="approach" class="py-16 md:py-24 px-6">
+    <div class="max-w-3xl mx-auto">
+      <div class="text-center mb-10">
+        <span class="text-xs font-bold tracking-widest text-apple-cobalt uppercase">איך אנחנו עובדים</span>
+        <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-apple-textPrimary tracking-tight mt-2">
+          אפשר לעצור את הלופ הזה.
         </h2>
-
-        <p class="text-base md:text-lg text-apple-textSecondary leading-relaxed mb-6">
-          הגעתי לכאן אחרי שנים של ניסיון קליני מעמיק (כולל שיקום פסיכיאטרי ומאות שעות שטח מול כאב אמיתי) שבהם ראיתי מקרוב איך אנשים משתחררים מהתקיעות הזו. אני יודע בדיוק איך זה מרגיש להיות שם למטה.
-        </p>
-
-        <!-- The Patient Testimonial Quote -->
-        <div class="my-8 p-6 md:p-8 rounded-2xl bg-apple-canvas border-r-4 border-apple-cobalt">
-          <blockquote class="font-serif text-lg md:text-xl text-apple-textPrimary leading-snug italic">
-            "פחדתי להיפתח בהתחלה פחד מוות, אבל גרמת לי להרגיש בטוח להיות מי שאני. מצאת בי את מה שפחדתי ממנו, והיית העוגן שלי."
-          </blockquote>
-          <span class="block mt-3 text-xs font-semibold text-apple-cobalt">— מילים של מטופל מתוך הקליניקה</span>
-        </div>
-
-        <p class="text-base md:text-lg text-apple-textSecondary leading-relaxed">
-          זה לא עוד טיפול שיחתי שבו שופטים אותך או מנתחים אותך עד עייפות. זה שילוב מדויק של כלים פרקטיים, ויסות רגשי ומרחב אמיתי שבו אני משמש כעוגן יציב עבורך — מוציא יחד איתך את מה שפחדת לגעת בו, ומחזיר אותך אל הצדדים הכי יפים ואותנטיים בך.
-        </p>
-
       </div>
 
+      <div class="apple-card p-8 md:p-12 space-y-6 text-base md:text-lg text-apple-textSecondary leading-relaxed">
+        <p>
+          הגעתי לכאן אחרי מאות שעות שטח של ליווי ועבודה מול כאב אמיתי, שבהן ראיתי מקרוב איך אנשים משתחררים מהתקיעות הזו.
+        </p>
+
+        <div class="p-6 rounded-2xl bg-apple-cobaltLight/60 border-r-4 border-apple-cobalt text-apple-textPrimary font-medium">
+          "פחדתי להיפתח בהתחלה פחד מוות, אבל גרמת לי להרגיש בטוח להיות מי שאני. מצאת בי את מה שפחדתי ממנו, והיית העוגן שלי."
+          <div class="text-xs text-apple-textTertiary mt-2 font-normal">(מתוך הקליניקה)</div>
+        </div>
+
+        <p>
+          אני לא אשב מולך, אהנהן ואנתח את הילדות שלך. אנחנו נעבוד תכלס על מה שמפעיל אותך עכשיו. ניגע בדברים שמפחידים אותך בלי לשפוט, נפרק את האוטומטים שתוקעים אותך, ונחזיר לך את השקט.
+        </p>
+      </div>
     </div>
   </section>
 
-  <!-- ================= TESTIMONIALS & SCREENSHOTS SECTION ================= -->
-  <section id="testimonials" class="py-16 md:py-24 bg-white border-y border-apple-border">
-    <div class="max-w-6xl mx-auto px-6">
-      
-      <div class="max-w-2xl mx-auto text-center mb-14 reveal-on-scroll">
-        <span class="text-xs font-bold tracking-widest text-apple-cobalt uppercase">תוצאות מהשטח</span>
+  <!-- ================= PART 4: TESTIMONIALS (4 CLEAN CARDS) ================= -->
+  <section id="testimonials" class="py-16 md:py-24 bg-white border-y border-apple-border/60 px-6">
+    <div class="max-w-6xl mx-auto">
+      <div class="max-w-2xl mx-auto text-center mb-14">
+        <span class="text-xs font-bold tracking-widest text-apple-cobalt uppercase">מילים של מטופלים</span>
         <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-apple-textPrimary tracking-tight mt-2">
-          הודעות מהקליניקה — ללא פילטרים
+          אנשים שעברו את התהליך
         </h2>
-        <p class="text-apple-textSecondary mt-3 text-base">
-          מילים אמיתיות של אנשים שהגיעו סגורים, מותשים ומפוחדים — ומצאו עוגן יציב.
+        <p class="text-apple-textSecondary mt-3 text-base sm:text-lg">
+          מה קורה כשמפסיקים לזייף.
         </p>
       </div>
 
-      <!-- Grid of WhatsApp / Real Chat Mockups -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-
-        <!-- Chat Screenshot 1 -->
-        <div class="apple-card p-6 flex flex-col justify-between bg-apple-canvas border border-apple-border reveal-on-scroll">
-          <div>
-            <!-- Chat Header -->
-            <div class="flex items-center justify-between pb-4 border-b border-apple-border mb-4">
-              <div class="flex items-center gap-2.5">
-                <div class="w-8 h-8 rounded-full bg-apple-cobalt text-white flex items-center justify-center font-bold text-xs">
-                  א'
-                </div>
-                <div>
-                  <div class="text-xs font-bold text-apple-textPrimary">א' (בן 34)</div>
-                  <div class="text-[10px] text-apple-textTertiary">הודעת וואטסאפ אישית</div>
-                </div>
-              </div>
-              <span class="text-[10px] text-apple-textTertiary">22:14</span>
-            </div>
-
-            <!-- WhatsApp Message Bubble -->
-            <div class="space-y-3">
-              <div class="wa-bubble-received p-4 text-xs md:text-sm text-apple-textPrimary leading-relaxed shadow-sm">
-                "אמיר, הייתי חייב לשלוח לך. בפעם הראשונה מזה שנים, ישבתי הערב בארוחה משפחתית ולא ניסיתי לרצות אף אחד. אמרתי לא על משהו שממש לא התאים לי, ובלי להרגיש אשם או לשנוא את עצמי אחרי זה. המפגשים איתך שינו לי את הנשימה."
-              </div>
-              <div class="text-left">
-                <span class="text-[10px] text-apple-textTertiary font-medium">נמסר ✓✓</span>
-              </div>
-            </div>
-          </div>
-          <div class="mt-6 pt-3 border-t border-apple-border text-xs text-apple-cobalt font-medium">
-            התמודדות עם ריצוי משפחתי כרוני
-          </div>
-        </div>
-
-        <!-- Chat Screenshot 2 -->
-        <div class="apple-card p-6 flex flex-col justify-between bg-apple-canvas border border-apple-border reveal-on-scroll">
-          <div>
-            <!-- Chat Header -->
-            <div class="flex items-center justify-between pb-4 border-b border-apple-border mb-4">
-              <div class="flex items-center gap-2.5">
-                <div class="w-8 h-8 rounded-full bg-zinc-800 text-white flex items-center justify-center font-bold text-xs">
-                  ר'
-                </div>
-                <div>
-                  <div class="text-xs font-bold text-apple-textPrimary">ר' (בת 28)</div>
-                  <div class="text-[10px] text-apple-textTertiary">הודעת וואטסאפ אישית</div>
-                </div>
-              </div>
-              <span class="text-[10px] text-apple-textTertiary">18:05</span>
-            </div>
-
-            <!-- WhatsApp Message Bubble -->
-            <div class="space-y-3">
-              <div class="wa-bubble-received p-4 text-xs md:text-sm text-apple-textPrimary leading-relaxed shadow-sm">
-                "הייתי בטוחה שאני לא מסוגלת להוציא מילה בטיפול, ושכולם פשוט ישפטו אותי על כמה שאני דפוקה. בפעם הראשונה בחיים הרגשתי שמישהו רואה אותי בלי ביקורת. תודה שהיית העוגן שהחזיק אותי כשהכל הרגיש מוצף."
-              </div>
-              <div class="text-left">
-                <span class="text-[10px] text-apple-textTertiary font-medium">נמסר ✓✓</span>
-              </div>
-            </div>
-          </div>
-          <div class="mt-6 pt-3 border-t border-apple-border text-xs text-apple-cobalt font-medium">
-            שחרור מחרדה חברתית ושנאה עצמית
-          </div>
-        </div>
-
-      <!-- ================= TESTIMONIALS SECTION ================= -->
-  <section id="testimonials" class="py-16 md:py-24 bg-white border-y border-apple-border">
-    <div class="max-w-6xl mx-auto px-6">
-      
-      <div class="max-w-2xl mx-auto text-center mb-14 reveal-on-scroll">
-        <span class="text-xs font-bold tracking-widest text-apple-cobalt uppercase">משובים מהקליניקה</span>
-        <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-apple-textPrimary tracking-tight mt-2">
-          מילים של אנשים שעברו את התהליך
-        </h2>
-        <p class="text-apple-textSecondary mt-3 text-base">
-          בלי סיסמאות ובלי פילטרים. ככה זה נראה כשמפסיקים לזייף ומתחילים לפרק דפוסים.
-        </p>
-      </div>
-
-      <!-- Grid of 4 Clean Reviews -->
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        
         <!-- Review 1 -->
-        <div class="apple-card p-7 flex flex-col justify-between reveal-on-scroll">
+        <div class="apple-card p-7 flex flex-col justify-between">
           <div>
             <div class="flex items-center gap-3 mb-4">
               <div class="w-10 h-10 rounded-full bg-apple-cobaltLight text-apple-cobalt flex items-center justify-center font-bold text-sm">
@@ -451,16 +282,16 @@
               </div>
             </div>
             <p class="text-sm md:text-base text-apple-textSecondary leading-relaxed">
-              "ישבתי השבוע בארוחת שישי, ובפעם הראשונה לא קפצתי לרצות אף אחד ולא אמרתי כן כשבפנים רציתי לצרוח לא. קמתי משם בלי המועקה הקבועה בחזה ובלי לטחון לעצמי את המוח כל הלילה על כמה שיצאתי לא בסדר. זה משהו שלא קרה לי עשרים שנה."
+              "ישבתי בארוחת שישי ובפעם הראשונה לא אמרתי כן כשבפנים רציתי לצרוח לא. קמתי משם בלי לטחון לעצמי את הראש כל הלילה על כמה שיצאתי לא בסדר. עשרים שנה זה לא קרה לי."
             </p>
           </div>
-          <div class="mt-6 pt-4 border-t border-apple-border text-xs text-apple-cobalt font-medium">
-            פירוק דפוס ריצוי אוטומטי
+          <div class="mt-6 pt-4 border-t border-apple-border/60 text-xs text-apple-cobalt font-semibold">
+            שבירת דפוס ריצוי
           </div>
         </div>
 
         <!-- Review 2 -->
-        <div class="apple-card p-7 flex flex-col justify-between reveal-on-scroll">
+        <div class="apple-card p-7 flex flex-col justify-between">
           <div>
             <div class="flex items-center gap-3 mb-4">
               <div class="w-10 h-10 rounded-full bg-apple-cobaltLight text-apple-cobalt flex items-center justify-center font-bold text-sm">
@@ -472,16 +303,16 @@
               </div>
             </div>
             <p class="text-sm md:text-base text-apple-textSecondary leading-relaxed">
-              "הייתי בטוחה שאני לא מסוגלת לשבת מול מטפל בלי לקפוא. הראש שלי היה משוכנע שאני פשוט דפוקה מהיסוד. אמיר לא ניסה לדחוף לי מנטרות של 'תאהבי את עצמך', אלא פשוט החזיק את החדר ביציבות ועזר לי להוריד את השריון בלי פחד."
+              "הייתי בטוחה שאקפא בשיחה. הראש שלי היה משוכנע שאני דפוקה מהיסוד. אמיר לא דחף לי קלישאות של אהבה עצמית, אלא פשוט היה שם בגובה העיניים ועזר לי להוריד את ההגנות."
             </p>
           </div>
-          <div class="mt-6 pt-4 border-t border-apple-border text-xs text-apple-cobalt font-medium">
-            התמודדות עם חרדה וביקורת עצמית
+          <div class="mt-6 pt-4 border-t border-apple-border/60 text-xs text-apple-cobalt font-semibold">
+            שקט מביקורת עצמית
           </div>
         </div>
 
         <!-- Review 3 -->
-        <div class="apple-card p-7 flex flex-col justify-between reveal-on-scroll">
+        <div class="apple-card p-7 flex flex-col justify-between">
           <div>
             <div class="flex items-center gap-3 mb-4">
               <div class="w-10 h-10 rounded-full bg-apple-cobaltLight text-apple-cobalt flex items-center justify-center font-bold text-sm">
@@ -493,16 +324,16 @@
               </div>
             </div>
             <p class="text-sm md:text-base text-apple-textSecondary leading-relaxed">
-              "שנים הייתי תקוע בלופ. מבין בדיוק מה צריך לעשות בעסק ובחיים, אבל כשמגיע רגע ההחלטה – ננעל. השיחות עם אמיר היו חדות, ממוקדות ובלי מריחות זמן. למדתי לזהות בדיוק את השנייה שבה החרדה מנהלת אותי ולחתוך החלטות קדימה."
+              "שנים הייתי תקוע. מבין מה צריך לעשות בעסק ובחיים, אבל ברגע ההחלטה ננעל. השיחות עם אמיר היו חדות ובלי מריחות זמן. למדתי לתפוס את השנייה שבה החרדה עולה ופשוט לחתוך קדימה."
             </p>
           </div>
-          <div class="mt-6 pt-4 border-t border-apple-border text-xs text-apple-cobalt font-medium">
-            יציאה משיתוק לעשייה והחלטה
+          <div class="mt-6 pt-4 border-t border-apple-border/60 text-xs text-apple-cobalt font-semibold">
+            מעבר מקיפאון לעשייה
           </div>
         </div>
 
         <!-- Review 4 -->
-        <div class="apple-card p-7 flex flex-col justify-between reveal-on-scroll">
+        <div class="apple-card p-7 flex flex-col justify-between">
           <div>
             <div class="flex items-center gap-3 mb-4">
               <div class="w-10 h-10 rounded-full bg-apple-cobaltLight text-apple-cobalt flex items-center justify-center font-bold text-sm">
@@ -514,230 +345,173 @@
               </div>
             </div>
             <p class="text-sm md:text-base text-apple-textSecondary leading-relaxed">
-              "הכי הפחיד אותי שזה יהיה עוד טיפול שחופר בעבר בלי פואנטה. מה שהיה שונה פה זה הפרקטיקה – להבין מה קורה בגוף ברגע שאני נלחץ מול אנשים, ולקבל קרקע יציבה לחזור אליה במקום ללכת לאיבוד בתוך הראש שלי."
+              "פחדתי מעוד טיפול שחופר בעבר בלי פואנטה. פה עבדנו תכלס. הבנתי מה מפעיל אותי כשאני נלחץ מול אנשים, וקיבלתי כלים לחזור לעצמי במקום ללכת לאיבוד בראש."
             </p>
           </div>
-          <div class="mt-6 pt-4 border-t border-apple-border text-xs text-apple-cobalt font-medium">
-            קרקוע וויסות מול עומס
+          <div class="mt-6 pt-4 border-t border-apple-border/60 text-xs text-apple-cobalt font-semibold">
+            יציבות מול לחץ
           </div>
         </div>
-
       </div>
-
     </div>
   </section>
 
-  <!-- ================= FAQ SECTION ================= -->
-  <section id="faq" class="py-16 md:py-24 bg-apple-canvas">
-    <div class="max-w-3xl mx-auto px-6">
-      
-      <div class="text-center mb-12 reveal-on-scroll">
+  <!-- ================= PART 5: FAQ ================= -->
+  <section id="faq" class="py-16 md:py-24 px-6">
+    <div class="max-w-3xl mx-auto">
+      <div class="text-center mb-12">
         <span class="text-xs font-bold tracking-widest text-apple-cobalt uppercase">שאלות נפוצות</span>
         <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-apple-textPrimary tracking-tight mt-2">
-          מה שעובר לך בראש עכשיו
+          דברים שבטח עוברים לך בראש
         </h2>
       </div>
 
       <div class="space-y-4">
-        
-        <!-- FAQ Item 1 -->
-        <div class="apple-card p-6 border border-apple-border reveal-on-scroll">
+        <div class="apple-card p-6 md:p-8">
           <h3 class="text-base md:text-lg font-bold text-apple-textPrimary mb-2">
-            "אני כל כך שונא את עצמי וסגור, מה אם לא אצליח להוציא כלום בשיחות?"
+            "אני סגור מאוד ושונא את עצמי, מה אם אשתתק בשיחה?"
           </h3>
           <p class="text-sm md:text-base text-apple-textSecondary leading-relaxed">
-            אתה לא צריך "להופיע מוכן" או לדעת מאיפה להתחיל. בדיוק בשביל זה יש עוגן. אני פוגש אותך בדיוק במקום שבו אתה תקוע, בלי לחץ ובלי ציפיות, ומוציא יחד איתך את מה שקבור בפנים בקצב המדויק שלך.
+            אתה לא צריך לבוא מוכן. התפקיד שלי הוא לפגוש אותך בדיוק איפה שאתה נמצא ולהוביל את השיחה בקצב שנוח לך, בלי לחץ.
           </p>
         </div>
 
-        <!-- FAQ Item 2 -->
-        <div class="apple-card p-6 border border-apple-border reveal-on-scroll">
+        <div class="apple-card p-6 md:p-8">
           <h3 class="text-base md:text-lg font-bold text-apple-textPrimary mb-2">
-            "כבר ניסיתי טיפולים בעבר ולא זזתי לשום מקום, למה שזה יהיה שונה?"
+            "כבר הייתי בטיפולים ולא זזתי מילימטר. מה שונה פה?"
           </h3>
           <p class="text-sm md:text-base text-apple-textSecondary leading-relaxed">
-            כי לא נשאר רק בראש ובחפירות אינסופיות בעבר. נעבוד על החיבור בין הרגש, התגובות האוטומטיות והדפוסים שמופעלים ביומיום — שם נמצאים התקיעות והטריגרים האמיתיים, ושם קורה השינוי המהיר בשטח.
+            אנחנו לא נשארים בתיאוריות או בחפירות על העבר. העבודה היא ישירות על התגובות האוטומטיות שתוקעות אותך היום. שם קורה השינוי.
           </p>
         </div>
 
-        <!-- FAQ Item 3 -->
-        <div class="apple-card p-6 border border-apple-border reveal-on-scroll">
+        <div class="apple-card p-6 md:p-8">
           <h3 class="text-base md:text-lg font-bold text-apple-textPrimary mb-2">
-            "איך יודעים אם זה מתאים לי?"
+            "איך אני יודע אם זה מתאים לי?"
           </h3>
           <p class="text-sm md:text-base text-apple-textSecondary leading-relaxed">
-            בדיוק בשביל זה אנחנו קובעים שיחת היכרות קצרה. בלי התחייבות, בלי לחץ מכירתי, רק כדי להכיר, להבין מה עובר עליך, ולראות אם יש בינינו את הכימיה והחיבור הנכונים.
+            נדבר עשר דקות בטלפון. תספר לי קצת מה עובר עליך, תראה איך מרגיש לך לדבר איתי, ונחליט יחד אם מתאים לנו לצאת לדרך.
           </p>
         </div>
-
       </div>
-
     </div>
   </section>
 
-  <!-- ================= CONTACT FORM SECTION ================= -->
-  <section id="contact" class="py-16 md:py-24 bg-white border-t border-apple-border">
-    <div class="max-w-2xl mx-auto px-6">
-      
-      <div class="text-center mb-10 reveal-on-scroll">
-        <span class="text-xs font-bold tracking-widest text-apple-cobalt uppercase">צעד ראשון ושקט</span>
-        <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-apple-textPrimary tracking-tight mt-2">
-          הגיע הזמן להפסיק להילחם בעצמך לבד.
+  <!-- ================= PART 6: CONTACT FORM ================= -->
+  <section id="contact" class="py-16 md:py-24 px-6 bg-white border-t border-apple-border/60">
+    <div class="max-w-xl mx-auto">
+      <div class="text-center mb-10">
+        <span class="text-xs font-bold tracking-widest text-apple-cobalt uppercase">צעד ראשון</span>
+        <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-apple-textPrimary tracking-tight mt-2">
+          לא חייבים להמשיך להילחם בזה לבד.
         </h2>
         <p class="text-apple-textSecondary mt-3 text-base">
-          השאר פרטים לשיחת היכרות אישית ודיסקרטית, ללא עלות וללא התחייבות.
+          תשאיר פרטים ונעשה שיחת היכרות קצרה בטלפון, בלי עלות.
         </p>
       </div>
 
-      <!-- Form Box -->
-      <div class="apple-card p-8 md:p-10 border border-apple-border shadow-apple-card reveal-on-scroll">
+      <div class="apple-card p-8 md:p-10">
         <form id="leadForm" onsubmit="handleFormSubmit(event)" class="space-y-5">
-          
           <div>
-            <label for="userName" class="block text-xs font-semibold text-apple-textPrimary mb-1.5">שם מלא</label>
-            <input type="text" id="userName" required placeholder="איך קוראים לך?" class="w-full px-4 py-3.5 rounded-xl bg-apple-canvas border border-apple-border text-apple-textPrimary text-sm focus:outline-none focus:border-apple-cobalt focus:ring-1 focus:ring-apple-cobalt transition-all" />
+            <label for="userName" class="block text-xs font-semibold text-apple-textPrimary mb-1.5">שם</label>
+            <input
+              type="text"
+              id="userName"
+              required
+              placeholder="איך קוראים לך?"
+              class="w-full px-4 py-3.5 rounded-xl bg-apple-canvas border border-apple-border text-apple-textPrimary text-sm focus:outline-none focus:border-apple-cobalt focus:ring-1 focus:ring-apple-cobalt transition-all"
+            />
           </div>
 
           <div>
-            <label for="userPhone" class="block text-xs font-semibold text-apple-textPrimary mb-1.5">טלפון / וואטסאפ לחזרה</label>
-            <input type="tel" id="userPhone" required placeholder="050-0000000" class="w-full px-4 py-3.5 rounded-xl bg-apple-canvas border border-apple-border text-apple-textPrimary text-sm focus:outline-none focus:border-apple-cobalt focus:ring-1 focus:ring-apple-cobalt transition-all" dir="ltr" />
+            <label for="userPhone" class="block text-xs font-semibold text-apple-textPrimary mb-1.5">מספר טלפון</label>
+            <input
+              type="tel"
+              id="userPhone"
+              required
+              placeholder="050-0000000"
+              dir="ltr"
+              class="w-full px-4 py-3.5 rounded-xl bg-apple-canvas border border-apple-border text-apple-textPrimary text-sm text-right focus:outline-none focus:border-apple-cobalt focus:ring-1 focus:ring-apple-cobalt transition-all"
+            />
           </div>
-<div>
-  <label for="userEmail" class="block text-xs font-semibold text-apple-textPrimary mb-1.5">כתובת אימייל</label>
-  <input 
-    type="email" 
-    id="userEmail" 
-    required 
-    placeholder="name@example.com" 
-    class="w-full px-4 py-3.5 rounded-xl bg-apple-canvas border border-apple-border text-apple-textPrimary text-sm focus:outline-none focus:border-apple-cobalt focus:ring-1 focus:ring-apple-cobalt transition-all" 
-    dir="ltr" 
-  />
-</div>
+
           <div>
-            <label for="userReason" class="block text-xs font-semibold text-apple-textPrimary mb-1.5">מה הנקודה שהכי פוגשת אותך כרגע? (רשות)</label>
-            <select id="userReason" class="w-full px-4 py-3.5 rounded-xl bg-apple-canvas border border-apple-border text-apple-textPrimary text-sm focus:outline-none focus:border-apple-cobalt focus:ring-1 focus:ring-apple-cobalt transition-all">
-              <option value="הריצוי והלבד-ביחד">הריצוי הכרוני ומלכודת ה"לבד-ביחד"</option>
-              <option value="שיתוק בקבלת החלטות">שיתוק ובחירה בחיים</option>
-              <option value="שנאה עצמית ועייפות פנימית">הקול הפנימי, אשמה ושנאה עצמית</option>
-              <option value="רוצה פשוט לדבר">רוצה פשוט לפרוק ולשמוע איך אפשר להתחיל</option>
+            <label for="userEmail" class="block text-xs font-semibold text-apple-textPrimary mb-1.5">כתובת אימייל</label>
+            <input
+              type="email"
+              id="userEmail"
+              required
+              placeholder="name@example.com"
+              dir="ltr"
+              class="w-full px-4 py-3.5 rounded-xl bg-apple-canvas border border-apple-border text-apple-textPrimary text-sm focus:outline-none focus:border-apple-cobalt focus:ring-1 focus:ring-apple-cobalt transition-all"
+            />
+          </div>
+
+          <div>
+            <label for="userReason" class="block text-xs font-semibold text-apple-textPrimary mb-1.5">מה הכי פוגש אותך כרגע?</label>
+            <select
+              id="userReason"
+              class="w-full px-4 py-3.5 rounded-xl bg-apple-canvas border border-apple-border text-apple-textPrimary text-sm focus:outline-none focus:border-apple-cobalt focus:ring-1 focus:ring-apple-cobalt transition-all"
+            >
+              <option value="ריצוי ובדידות ליד אנשים">ריצוי ובדידות ליד אנשים</option>
+              <option value="קיפאון וקושי להחליט">קיפאון וקושי להחליט</option>
+              <option value="ביקורת ושנאה עצמית">ביקורת ושנאה עצמית</option>
+              <option value="רוצה פשוט לדבר">רוצה פשוט לדבר</option>
             </select>
           </div>
 
-          <button type="submit" class="w-full py-4 rounded-full text-base font-semibold bg-apple-cobalt text-white hover:bg-apple-cobaltHover transition-all shadow-apple-card hover:shadow-apple-card-hover mt-4">
-            שלח פרטים לשיחת היכרות
+          <button
+            type="submit"
+            class="w-full py-4 rounded-xl bg-apple-cobalt hover:bg-apple-cobaltHover text-white font-bold text-base shadow-md transition-all"
+          >
+            תיאום שיחת היכרות
           </button>
-
-          <p class="text-center text-[11px] text-apple-textTertiary mt-3">
-            הפרטים שלך נשמרים בסודיות מוחלטת. בלחיצה על שליחה אתה מאשר את 
-            <button type="button" onclick="openModal('privacyModal')" class="underline hover:text-apple-textPrimary">מדיניות הפרטיות</button>.
-          </p>
-
         </form>
 
-        <!-- Form Success State Box (Hidden by default) -->
-        <div id="formSuccess" class="hidden text-center py-6">
-          <div class="w-12 h-12 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center mx-auto mb-4 font-bold text-xl">
+        <!-- הודעת אישור לאחר שליחה -->
+        <div id="formSuccess" class="hidden text-center py-6 space-y-4">
+          <div class="w-12 h-12 rounded-full bg-green-100 text-green-600 flex items-center justify-center mx-auto text-xl font-bold">
             ✓
           </div>
-          <h3 class="text-xl font-bold text-apple-textPrimary mb-2">הפרטים התקבלו בהצלחה</h3>
-          <p class="text-sm text-apple-textSecondary max-w-md mx-auto mb-6">
-            תודה שפנית. אחזור אליך בהקדם לשיחה שקטה. רוצה לקצר תהליכים ולשלוח לי הודעה ישירה כבר עכשיו?
+          <h3 class="text-xl font-bold text-apple-textPrimary">הפרטים אצלי.</h3>
+          <p class="text-sm text-apple-textSecondary leading-relaxed">
+            תודה שפנית, אחזור אליך בהקדם. מעדיף לדבר כבר עכשיו? שלח לי הודעה לוואטסאפ.
           </p>
-          <a id="waDirectBtn" href="#" target="_blank" class="inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm font-semibold bg-[#25D366] text-white hover:bg-[#1EBE5D] transition-all shadow-sm">
-            <span>פתח שיחה ישירה בוואטסאפ</span>
-            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
-          </a>
+          <div class="pt-2">
+            <a
+              id="waDirectBtn"
+              href="https://wa.me/972552503679"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center justify-center px-6 py-3.5 rounded-xl bg-[#25D366] hover:bg-[#1ebe57] text-white font-bold text-sm transition-all"
+            >
+              שלח הודעה בוואטסאפ
+            </a>
+          </div>
         </div>
-
       </div>
-
     </div>
   </section>
 
   <!-- ================= FOOTER ================= -->
-  <footer class="py-12 bg-apple-canvas border-t border-apple-border text-center">
-    <div class="max-w-6xl mx-auto px-6">
-      
-      <div class="flex items-center justify-center gap-3 mb-4">
-        <svg class="w-8 h-8" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M50 14L22 84H37L50 51L63 84H78L50 14Z" fill="#1D1D1F" />
-          <path d="M37 60H63V69H37V60Z" fill="#1D1D1F" />
-          <path d="M48 37H63C73 37 81 44 81 54C81 64 73 71 63 71H48V37ZM58 63H63C68 63 72 59 72 54C72 49 68 45 63 45H58V63Z" fill="#00428A" />
-        </svg>
-        <span class="font-brand text-sm font-bold tracking-widest text-apple-textPrimary">AMIR DAMATI</span>
-      </div>
-
-      <p class="text-xs text-apple-textSecondary max-w-md mx-auto mb-6">
-        מרחב ליווי אישי, ויסות רגשי ופירוק דפוסי ריצוי ושנאה עצמית.
+  <footer class="py-10 px-6 bg-apple-canvas border-t border-apple-border/60 text-center">
+    <div class="max-w-4xl mx-auto space-y-3">
+      <div class="text-sm font-extrabold text-apple-textPrimary tracking-tight">AMIR DAMATI</div>
+      <p class="text-xs text-apple-textSecondary">
+        העוגן · ליווי אישי ופירוק דפוסי ריצוי וביקורת עצמית.
       </p>
-
-      <div class="flex items-center justify-center gap-6 text-xs text-apple-textSecondary">
-        <button onclick="openModal('privacyModal')" class="hover:text-apple-textPrimary transition-colors underline">מדיניות פרטיות</button>
-        <span>•</span>
-        <button onclick="openModal('accessibilityModal')" class="hover:text-apple-textPrimary transition-colors underline">הצהרת נגישות</button>
+      <div class="flex items-center justify-center gap-4 text-xs text-apple-textTertiary pt-2">
+        <button onclick="openModal('privacyModal')" class="hover:text-apple-textPrimary underline">מדיניות פרטיות</button>
+        <span>·</span>
+        <button onclick="openModal('accessibilityModal')" class="hover:text-apple-textPrimary underline">הצהרת נגישות</button>
       </div>
-
-      <p class="text-[11px] text-apple-textTertiary mt-8">
-        © 2026 אמיר דמתי (AMIR DAMATI). כל הזכויות שמורות.
+      <p class="text-[11px] text-apple-textTertiary pt-2">
+        © 2026 אמיר דמתי. כל הזכויות שמורות.
       </p>
-
     </div>
   </footer>
 
-  <!-- ================= ACCESSIBILITY FLOATING WIDGET (FIXED & HIGH Z-INDEX) ================= -->
-  <div class="fixed bottom-6 left-6 z-[9999]">
-    
-    <!-- Accessibility Popover Menu (Opens upward cleanly above the button) -->
-    <div id="accessibilityMenu" class="hidden absolute bottom-16 left-0 w-72 max-w-[90vw] p-5 rounded-2xl bg-white border border-apple-border shadow-apple-modal">
-      <div class="flex items-center justify-between pb-3 border-b border-apple-border mb-4">
-        <span class="text-xs font-bold text-apple-textPrimary flex items-center gap-2">
-          <span>תפריט נגישות</span>
-        </span>
-        <button onclick="toggleAccessibilityMenu()" class="text-apple-textTertiary hover:text-apple-textPrimary text-base leading-none p-1">✕</button>
-      </div>
-
-      <div class="space-y-2 text-xs">
-        <button onclick="changeFontSize(0.1)" class="w-full text-right py-2 px-3 rounded-lg bg-apple-canvas hover:bg-apple-border transition-colors flex justify-between items-center">
-          <span>הגדל גופן</span>
-          <span class="font-bold text-apple-cobalt">A+</span>
-        </button>
-        <button onclick="changeFontSize(-0.1)" class="w-full text-right py-2 px-3 rounded-lg bg-apple-canvas hover:bg-apple-border transition-colors flex justify-between items-center">
-          <span>הקטן גופן</span>
-          <span class="font-bold text-apple-cobalt">A-</span>
-        </button>
-        <button onclick="toggleHighContrast()" class="w-full text-right py-2 px-3 rounded-lg bg-apple-canvas hover:bg-apple-border transition-colors flex justify-between items-center">
-          <span>ניגודיות גבוהה</span>
-          <span>◐</span>
-        </button>
-        <button onclick="toggleHighlightLinks()" class="w-full text-right py-2 px-3 rounded-lg bg-apple-canvas hover:bg-apple-border transition-colors flex justify-between items-center">
-          <span>הדגשת קישורים</span>
-          <span>🔗</span>
-        </button>
-        <button onclick="toggleReadableFont()" class="w-full text-right py-2 px-3 rounded-lg bg-apple-canvas hover:bg-apple-border transition-colors flex justify-between items-center">
-          <span>גופן קריא פשוט</span>
-          <span>Aa</span>
-        </button>
-        <button onclick="resetAccessibility()" class="w-full text-center py-2 text-[11px] text-apple-textTertiary hover:text-apple-textPrimary underline mt-2">
-          איפוס הגדרות נגישות
-        </button>
-      </div>
-    </div>
-
-    <!-- Floating Toggle Button -->
-    <button onclick="toggleAccessibilityMenu()" aria-label="פתח תפריט נגישות" class="w-13 h-13 p-3.5 rounded-full bg-apple-white text-apple-cobalt border border-apple-border shadow-apple-modal hover:scale-105 active:scale-95 transition-all flex items-center justify-center">
-      <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <circle cx="12" cy="4" r="2"/>
-        <path d="m4.9 19.1 2.9-5.7 3.2 2.6v5"/>
-        <path d="m19.1 19.1-2.9-5.7-3.2 2.6v5"/>
-        <path d="m5 8 7 1 7-1"/>
-        <path d="M12 9v4"/>
-      </svg>
-    </button>
-  </div>
-
-  <!-- ================= LEGAL MODALS (PRIVACY & ACCESSIBILITY) ================= -->
-  
-  <!-- Privacy Modal -->
+  <!-- ================= PRIVACY MODAL ================= -->
   <div id="privacyModal" class="hidden fixed inset-0 z-[10000] bg-black/40 backdrop-blur-sm flex items-center justify-center p-4">
     <div class="apple-card max-w-lg w-full p-8 max-h-[85vh] overflow-y-auto">
       <div class="flex items-center justify-between pb-4 border-b border-apple-border mb-4">
@@ -746,13 +520,9 @@
       </div>
       <div class="text-xs text-apple-textSecondary leading-relaxed space-y-3">
         <p>אתר זה מופעל על ידי אמיר דמתי (AMIR DAMATI). אנו מכבדים את פרטיותך ורואים בה ערך עליון, בפרט במרחב טיפולי ואישי.</p>
-        
         <p><strong>1. המידע שאנו אוספים:</strong> בעת מילוי טופס ההתעניינות באתר, נאספים הפרטים שנמסרו על ידך מרצון: שם מלא, כתובת אימייל, מספר טלפון והנושא שנבחר מתוך רשימת האתגרים.</p>
-        
         <p><strong>2. מטרות השימוש במידע:</strong> הפרטים משמשים ליצירת קשר ישיר לתיאום שיחת היכרות אישית, ולמשלוח תכנים מקצועיים ועדכונים במסגרת רשימת התפוצה (באפשרותך להסיר את עצמך בכל עת).</p>
-        
         <p><strong>3. שמירת המידע ואבטחתו:</strong> המידע נשמר במערכת מאובטחת בענן (Google Workspace) המוגנת בהרשאות גישה קפדניות. אנו מתחייבים לא להעביר, למכור או להשכיר את פרטיך לשום צד שלישי.</p>
-        
         <p><strong>4. זכות העיון וההסרה:</strong> בכל עת ניתן לבקש לעיין במידע שנשמר אודותיך, לתקנו או לבקש את מחיקתו המלאה מרשימת התפוצה וממאגר הנתונים על ידי פנייה ישירה לאמיר דמתי.</p>
       </div>
       <div class="mt-6 text-left">
@@ -761,7 +531,7 @@
     </div>
   </div>
 
-  <!-- Accessibility Statement Modal -->
+  <!-- ================= ACCESSIBILITY MODAL ================= -->
   <div id="accessibilityModal" class="hidden fixed inset-0 z-[10000] bg-black/40 backdrop-blur-sm flex items-center justify-center p-4">
     <div class="apple-card max-w-lg w-full p-8 max-h-[85vh] overflow-y-auto">
       <div class="flex items-center justify-between pb-4 border-b border-apple-border mb-4">
@@ -769,15 +539,8 @@
         <button onclick="closeModal('accessibilityModal')" class="text-apple-textSecondary hover:text-apple-textPrimary text-lg">✕</button>
       </div>
       <div class="text-xs text-apple-textSecondary leading-relaxed space-y-3">
-        <p>אתר זה מחויב לספק חוויית גלישה שוויונית, מכבדת ונגישה לכלל האוכלוסייה, לרבות אנשים עם מוגבלויות, בהתאם לתקנות שוויון זכויות לאנשים עם מוגבלות (התאמות נגישות לשירות), התשע"ג-2013.</p>
-        <p><strong>התאמות שבוצעו באתר:</strong></p>
-        <ul class="list-disc list-inside space-y-1 pr-2">
-          <li>ניווט פשוט וברור באמצעות המקלדת.</li>
-          <li>ניגודיות צבעים גבוהה וקריאה בהתאם להנחיות WCAG 2.1 ברמת AA.</li>
-          <li>סרגל נגישות ייעודי המאפשר שינוי גודל גופן, מצב ניגודיות והדגשת קישורים.</li>
-          <li>התאמה מלאה למכשירים ניידים ולמסכי מגע.</li>
-        </ul>
-        <p>נתקלת בבעיית נגישות? אנא פנה ישירות לאמיר דמתי ונטפל בנושא בהקדם האפשרי.</p>
+        <p>אנו רואים חשיבות רבה במתן שירות שוויוני ונגיש לכלל הגולשים. באתר מוטמע תפריט נגישות המאפשר התאמת גודל גופן, ניגודיות גבוהה, הדגשת קישורים ופונט קריא.</p>
+        <p>אם נתקלת בקושי בגלישה באתר או שיש לך הערה בנושא נגישות, ניתן ליצור קשר ישירות עם אמיר דמתי בטלפון 055-2503679 או במייל dddamur9@gmail.com.</p>
       </div>
       <div class="mt-6 text-left">
         <button onclick="closeModal('accessibilityModal')" class="px-5 py-2 rounded-full text-xs font-semibold bg-apple-darkPill text-white">סגור</button>
@@ -785,83 +548,101 @@
     </div>
   </div>
 
-  <!-- ================= JAVASCRIPT ================= -->
- <script>
-  // תפריט נגישות
-  function toggleAccessibilityMenu() {
-    const menu = document.getElementById('accessibilityMenu');
-    if (menu) menu.classList.toggle('hidden');
-  }
+  <!-- ================= FLOATING ACCESSIBILITY WIDGET ================= -->
+  <div class="fixed bottom-5 left-5 z-[9999]">
+    <div id="accessibilityMenu" class="hidden mb-3 w-56 apple-card p-4 shadow-xl border border-apple-border space-y-2 text-xs">
+      <div class="font-bold text-apple-textPrimary pb-2 border-b border-apple-border">כלי נגישות</div>
+      <button onclick="changeFontSize(0.1)" class="w-full text-right py-1.5 px-2 rounded hover:bg-apple-canvas">הגדל טקסט (+)</button>
+      <button onclick="changeFontSize(-0.1)" class="w-full text-right py-1.5 px-2 rounded hover:bg-apple-canvas">הקטן טקסט (-)</button>
+      <button onclick="toggleHighContrast()" class="w-full text-right py-1.5 px-2 rounded hover:bg-apple-canvas">ניגודיות גבוהה</button>
+      <button onclick="toggleHighlightLinks()" class="w-full text-right py-1.5 px-2 rounded hover:bg-apple-canvas">הדגשת קישורים</button>
+      <button onclick="toggleReadableFont()" class="w-full text-right py-1.5 px-2 rounded hover:bg-apple-canvas">פונט קריא</button>
+      <button onclick="resetAccessibility()" class="w-full text-right py-1.5 px-2 rounded text-red-600 hover:bg-red-50 font-semibold">איפוס הגדרות</button>
+    </div>
 
-  let currentScale = 1;
-  function changeFontSize(delta) {
-    currentScale = Math.min(Math.max(currentScale + delta, 0.8), 1.3);
-    document.documentElement.style.setProperty('--font-scale', currentScale);
-  }
+    <button
+      onclick="toggleAccessibilityMenu()"
+      aria-label="תפריט נגישות"
+      class="w-11 h-11 rounded-full bg-apple-darkPill text-white shadow-lg flex items-center justify-center hover:bg-apple-cobalt transition-colors text-sm font-bold"
+    >
+      נגישות
+    </button>
+  </div>
 
-  function toggleHighContrast() {
-    document.body.classList.toggle('high-contrast');
-  }
+  <!-- ================= SCRIPTS ================= -->
+  <script>
+    function toggleAccessibilityMenu() {
+      const menu = document.getElementById('accessibilityMenu');
+      if (menu) menu.classList.toggle('hidden');
+    }
 
-  function toggleHighlightLinks() {
-    document.body.classList.toggle('highlight-links');
-  }
+    let currentScale = 1;
+    function changeFontSize(delta) {
+      currentScale = Math.min(Math.max(currentScale + delta, 0.8), 1.3);
+      document.documentElement.style.setProperty('--font-scale', currentScale);
+    }
 
-  function toggleReadableFont() {
-    document.body.classList.toggle('readable-font');
-  }
+    function toggleHighContrast() {
+      document.body.classList.toggle('high-contrast');
+    }
 
-  function resetAccessibility() {
-    currentScale = 1;
-    document.documentElement.style.setProperty('--font-scale', 1);
-    document.body.classList.remove('high-contrast', 'highlight-links', 'readable-font');
-  }
+    function toggleHighlightLinks() {
+      document.body.classList.toggle('highlight-links');
+    }
 
-  // חלונות מודאל (פרטיות ונגישות)
-  function openModal(id) {
-    const m = document.getElementById(id);
-    if (m) m.classList.remove('hidden');
-  }
+    function toggleReadableFont() {
+      document.body.classList.toggle('readable-font');
+    }
 
-  function closeModal(id) {
-    const m = document.getElementById(id);
-    if (m) m.classList.add('hidden');
-  }
+    function resetAccessibility() {
+      currentScale = 1;
+      document.documentElement.style.setProperty('--font-scale', 1);
+      document.body.classList.remove('high-contrast', 'highlight-links', 'readable-font');
+    }
 
-  // שליחת הטופס לשיטס + מעבר לוואטסאפ
-  function handleFormSubmit(event) {
-    event.preventDefault();
+    function openModal(id) {
+      const m = document.getElementById(id);
+      if (m) m.classList.remove('hidden');
+    }
 
-    const name = document.getElementById('userName').value.trim();
-    const phone = document.getElementById('userPhone').value.trim();
-    const email = document.getElementById('userEmail') ? document.getElementById('userEmail').value.trim() : '';
-    const reason = document.getElementById('userReason').value;
+    function closeModal(id) {
+      const m = document.getElementById(id);
+      if (m) m.classList.add('hidden');
+    }
 
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbzvVpYxCMiIZThFBA6mRa7OjLHaDUBtaYjeqMKjL_4duVZO7V9NZDmYoe9urqrlagCH/exec';
+    function handleFormSubmit(event) {
+      event.preventDefault();
 
-    fetch(scriptURL, {
-      method: 'POST',
-      mode: 'no-cors',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        name: name,
-        email: email,
-        phone: phone,
-        topic: reason,
-        notes: 'נרשם מדף הנחיתה'
-      })
-    }).catch(err => console.error('Error submitting form:', err));
+      const name = document.getElementById('userName').value.trim();
+      const phone = document.getElementById('userPhone').value.trim();
+      const email = document.getElementById('userEmail') ? document.getElementById('userEmail').value.trim() : '';
+      const reason = document.getElementById('userReason').value;
 
-    const myPhoneNumber = "972552503679";
-    const textMessage = encodeURIComponent(`היי אמיר, שמי ${name}. הגעתי מדף הנחיתה ואשמח לשוחח. הנקודה שהכי פוגשת אותי כרגע: ${reason}.`);
-    const waUrl = `https://wa.me/${myPhoneNumber}?text=${textMessage}`;
+      const scriptURL = 'https://script.google.com/macros/s/AKfycbzvVpYxCMiIZThFBA6mRa7OjLHaDUBtaYjeqMKjL_4duVZO7V9NZDmYoe9urqrlagCH/exec';
 
-    document.getElementById('waDirectBtn').href = waUrl;
-    document.getElementById('leadForm').classList.add('hidden');
-    document.getElementById('formSuccess').classList.remove('hidden');
-  }
-</script>
+      fetch(scriptURL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          name: name,
+          email: email,
+          phone: phone,
+          topic: reason,
+          notes: 'נרשם מדף הנחיתה'
+        })
+      }).catch(err => console.error('Error submitting form:', err));
+
+      const myPhoneNumber = "972552503679";
+      const textMessage = encodeURIComponent(`היי אמיר, שמי ${name}. הגעתי מדף הנחיתה ואשמח לשוחח. הנקודה שהכי פוגשת אותי כרגע: ${reason}.`);
+      const waUrl = `https://wa.me/${myPhoneNumber}?text=${textMessage}`;
+
+      document.getElementById('waDirectBtn').href = waUrl;
+      document.getElementById('leadForm').classList.add('hidden');
+      document.getElementById('formSuccess').classList.remove('hidden');
+    }
+  </script>
 </body>
 </html>
